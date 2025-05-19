@@ -1,1 +1,0 @@
-import '@hackernoon/pixel-icon-library/fonts/iconfont.css';
