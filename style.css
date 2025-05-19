@@ -1,0 +1,105 @@
+.info {
+    font-family: 'VT323', monospace;
+    font-size: 32px;
+    margin: 20px auto;
+}
+
+.line {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.left {
+    white-space: nowrap;
+}
+
+.dots {
+    flex-grow: 1;
+    border-bottom: 3px dotted #00FF00;
+    margin:  0 5px;
+    height: 0.7em;
+}
+
+body {
+    max-width: 1920px;
+    margin: 0 auto;
+    background: #000;
+    color: #00FF00;
+    font-family: 'Press Start 2P', system-ui;
+    padding: 2rem;
+    overflow-x: hidden; /* Important for scrolling text */
+}
+
+/* Scrolling container */
+.scrolling-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 20px 0;
+}
+
+/* Scrolling content wrapper */
+.scroller {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 10s linear infinite;
+}
+
+/* Duplicated text elements */
+.scrolling-text {
+    display: inline-block;
+    color: #000;
+    font-size: 2.5rem;
+    padding-right: 40px; /* Space between copies */
+    position: relative;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Add green strip background */
+.scrolling-container {
+    position: relative;
+    padding: 15px 0;
+}
+
+.scrolling-container::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 120%;
+    background: #00FF00;
+    z-index: -1;
+}
+
+/* Adjust text positioning */
+.scrolling-text {
+    position: relative;
+    padding: 8px 40px 8px 0;
+    z-index: 1;
+}
+
+/* Icon styling */
+.separator-icon {
+    color: #000;
+    margin: 0 30px;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+/* Adjust animation timing */
+.scroller {
+    animation: scroll 12s linear infinite;
+}
+
+/* Update text and icon positioning */
+.scrolling-text {
+    display: inline-flex;
+    align-items: center;
+    padding-right: 0;
+}
