@@ -23,6 +23,8 @@ body {
     position: relative;
     margin: 20px 0;
     padding: 15px 0;
+    box-shadow: 0 0 2px 2px var(--neon-green);
+    filter: drop-shadow(0 0 8px var(--neon-green));
 }
 
 .scrolling-container::before {
@@ -35,6 +37,8 @@ body {
     height: 120%;
     background: var(--neon-green);
     z-index: -1;
+    box-shadow: 0 0 40px 10px var(--neon-green);
+    filter: drop-shadow(0 0 20px var(--neon-green));
 }
 
 .scroller {
@@ -165,6 +169,7 @@ body {
     color: var(--neon-green);
     font-size: 1.2rem;
     margin-bottom: 1rem;
+    text-shadow: var(--text-glow);
 }
 
 /* Skills Hierarchy */
@@ -173,19 +178,21 @@ body {
     margin: 1.2rem 0;
     position: relative;
     font-family: 'VT323', monospace;
-    font-size: 1.4rem;
+    font-size: 2rem;
+    text-shadow: var(--text-glow);
 }
 
 .sub-skills {
     list-style: none;
     padding-left: 2rem;
     margin: 0.8rem 0;
+    text-shadow: none;
 }
 
 .sub-skills li {
     padding-left: 2.5rem;
     position: relative;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
 }
 
 /* Icons */
@@ -206,7 +213,89 @@ body {
 
 .sub-skills .skill-icon {
     margin-left: -1.5rem;
-    font-size: 1rem;
+    font-size: 1.7rem;
+}
+
+.skill-category h3 i {
+    margin-right: 0.8rem;
+}
+
+/* Language specific styling */
+.skill-list li .skill-detail {
+    font-size: 0.9em;
+    color: rgba(0, 255, 166, 0.7);
+    margin-left: 0.5rem;
+}
+
+/* Education specific styling */
+.education-item {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Auto-size icon column */
+    gap: 1.5rem;
+    align-items: start;
+    margin-bottom: 2rem;
+}
+
+.education-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.education-details {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    width: 100%;
+    padding-right: 1rem;
+}
+
+.education-institution {
+    text-align: left;
+    margin-right: 2rem;
+}
+
+.education-date {
+    min-width: 120px; /* Fixed width for dates */
+    text-align: right;
+}
+
+/* Update skills grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Left column wider */
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Right column container */
+.right-column {
+    display: grid;
+    gap: 2rem;
+    height: min-content;
+}
+
+@media (min-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: 1.5fr 1fr;
+    }
+    
+    /* Make education section fill available space */
+    .skill-category:last-child {
+        height: 100%;
+    }
+}
+
+@media (max-width: 1023px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .right-column {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
 }
 
 /* Responsive Design */
@@ -268,5 +357,21 @@ body {
     .skill-icon {
         font-size: 1rem;
         margin-right: 0.5rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .education-details {
+        flex-direction: column;
+    }
+    
+    .education-date {
+        margin-top: 0.3rem;
+    }
+
+    .right-column {
+        grid-template-columns: 1fr;
     }
 }
