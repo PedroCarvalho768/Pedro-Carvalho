@@ -1,69 +1,27 @@
+:root {
+    --neon-green: #00FFA6;
+    --cyber-black: #000;
+    --text-glow: 0 0 10px var(--neon-green);
+}
+
+/* Base Styles */
 body {
-    max-width: 1920px;
-    margin: 0 auto;
-    background: #000;
-    color: #00FFA6;
     font-family: 'Press Start 2P', system-ui;
+    background: var(--cyber-black);
+    color: var(--neon-green);
+    margin: 0 auto;
     padding: 2rem;
-    overflow-x: hidden; /* Important for scrolling text */
+    max-width: 1920px;
+    overflow-x: hidden;
+    line-height: 1.4;
 }
 
-.info {
-    font-family: 'VT323', monospace;
-    font-size: 28px;
-    margin: 20px auto;
-    max-width: 800px;
-    padding-top : 20px;
-}
-
-.line {
-    display: flex;
-    margin-bottom: 15px;
-}
-
-.left {
-    white-space: nowrap;
-}
-
-.dots {
-    flex-grow: 1;
-    border-bottom: 3px dotted #00FFA6;
-    margin:  0 5px;
-    height: 0.7em;
-}
-
-/* Scrolling container */
+/* Scrolling Header */
 .scrolling-container {
     width: 100%;
     overflow: hidden;
     position: relative;
     margin: 20px 0;
-}
-
-/* Scrolling content wrapper */
-.scroller {
-    display: inline-block;
-    white-space: nowrap;
-    animation: scroll 10s linear infinite;
-}
-
-/* Duplicated text elements */
-.scrolling-text {
-    display: inline-block;
-    color: #000;
-    font-size: 2.5rem;
-    padding-right: 40px; /* Space between copies */
-    position: relative;
-}
-
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-/* Add green strip background */
-.scrolling-container {
-    position: relative;
     padding: 15px 0;
 }
 
@@ -75,43 +33,240 @@ body {
     transform: translateY(-50%);
     width: 100%;
     height: 120%;
-    background: #00FFA6;
+    background: var(--neon-green);
     z-index: -1;
 }
 
-/* Adjust text positioning */
-.scrolling-text {
-    position: relative;
-    padding: 8px 40px 8px 0;
-    z-index: 1;
-}
-
-/* Icon styling */
-.separator-icon {
-    color: #000;
-    margin: 0 30px;
-    font-size: 1.2em;
-    vertical-align: middle;
-}
-
-/* Adjust animation timing */
 .scroller {
+    display: inline-flex;
     animation: scroll 12s linear infinite;
 }
 
-/* Update text and icon positioning */
 .scrolling-text {
+    color: var(--cyber-black);
+    font-size: 2.5rem;
+    padding: 8px 40px;
     display: inline-flex;
     align-items: center;
-    padding-right: 0;
+    white-space: nowrap;
 }
 
-body {
-    max-width: 1920px;
-    margin: 0 auto;
-    background: #000;
-    color: #00FFA6;
+.separator-icon {
+    color: var(--cyber-black);
+    margin: 0 30px;
+    font-size: 1.2em;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Tabs Navigation */
+.tabs-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 0 1rem;
+    border-bottom: 2px solid var(--neon-green);
+    position: relative;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 1rem 1.5rem;
     font-family: 'Press Start 2P', system-ui;
+    font-size: 1.1rem;
+    color: var(--neon-green);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: var(--text-glow);
+    position: relative;
+    bottom: -2px;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 98% 100%, 2% 100%, 0 85%);
+}
+
+.tab-button.active {
+    background: rgba(0, 255, 166, 0.1);
+    border: 2px solid var(--neon-green);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    z-index: 2;
+}
+
+.tab-button.active::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    height: 2px;
+    background: var(--cyber-black);
+    z-index: 1;
+}
+
+.tab-button:not(.active):hover {
+    background: rgba(0, 255, 166, 0.05);
+    text-shadow: 0 0 15px var(--neon-green);
+}
+
+/* Main Content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 2rem;
-    overflow-x: hidden; /* Important for scrolling text */
+}
+
+/* About Section */
+.info-card {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--neon-green);
+    padding: 2rem;
+    margin: 1rem 0;
+}
+
+.line {
+    display: flex;
+    margin-bottom: 1.5rem;
+    align-items: center;
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+}
+
+.left {
+    min-width: 120px;
+    color: rgba(0, 255, 166, 0.8);
+}
+
+.dots {
+    flex-grow: 1;
+    border-bottom: 2px dotted var(--neon-green);
+    margin: 0 10px;
+    height: 0.5em;
+}
+
+.right {
+    min-width: 200px;
+    text-align: right;
+}
+
+/* Skills Section */
+.skill-category {
+    background: rgba(0, 255, 166, 0.1);
+    border: 2px solid var(--neon-green);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill-category h3 {
+    font-family: 'Press Start 2P', system-ui;
+    color: var(--neon-green);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* Skills Hierarchy */
+.main-skill {
+    padding-left: 2rem;
+    margin: 1.2rem 0;
+    position: relative;
+    font-family: 'VT323', monospace;
+    font-size: 1.4rem;
+}
+
+.sub-skills {
+    list-style: none;
+    padding-left: 2rem;
+    margin: 0.8rem 0;
+}
+
+.sub-skills li {
+    padding-left: 2.5rem;
+    position: relative;
+    font-size: 1.2rem;
+}
+
+/* Icons */
+.skill-icon {
+    color: var(--neon-green);
+    fill: var(--neon-green);
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.8rem;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.main-skill > .skill-icon {
+    margin-left: -2rem;
+    margin-right: 1rem;
+}
+
+.sub-skills .skill-icon {
+    margin-left: -1.5rem;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .scrolling-text {
+        font-size: 1.2rem;
+        padding: 6px 15px;
+    }
+
+    .tabs-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .tab-button {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+        clip-path: none;
+        bottom: 0;
+        text-align: center;
+        border: 1px solid transparent;
+    }
+
+    .tab-button.active {
+        transform: none;
+    }
+
+    .tab-button.active::after {
+        content: none;
+    }
+
+    .line {
+        flex-wrap: wrap;
+        font-size: 1.2rem;
+    }
+
+    .dots {
+        display: none;
+    }
+
+    .left, .right {
+        width: 100%;
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+
+    .main-skill {
+        font-size: 1.2rem;
+        padding-left: 1.5rem;
+    }
+
+    .skill-icon {
+        font-size: 1rem;
+        margin-right: 0.5rem;
+    }
 }
