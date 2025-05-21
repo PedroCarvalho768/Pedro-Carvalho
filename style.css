@@ -125,10 +125,18 @@ body {
 
 /* About Section */
 .info-card {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 255, 166, 0.1);
     border: 2px solid var(--neon-green);
     padding: 2rem;
     margin: 1rem 0;
+}
+
+.info-card h2 {
+    font-family: 'Press Start 2P', system-ui;
+    color: var(--neon-green);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: var(--text-glow);
 }
 
 .line {
